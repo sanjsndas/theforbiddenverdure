@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - The Forbidden Verdure</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #2d5a27;
+            --secondary-color: #5a7f4c;
+            --accent-color: #8a9a5b;
+            --light-color: #f5f9f3;
+            --dark-color: #1a3316;
+            --text-color: #333;
+            --text-light: #666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="none" width="100" height="100"/><path fill="%232d5a27" opacity="0.05" d="M20,20 L80,20 L80,80 L20,80 Z M30,30 L70,30 L70,70 L30,70 Z"/></svg>');
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(45, 90, 39, 0.7), rgba(90, 127, 76, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300"><rect fill="%235a7f4c" width="1200" height="300"/><path fill="%232d5a27" d="M0,150 Q300,75 600,150 T1200,150 L1200,300 L0,300 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .page-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .section p {
+            margin-bottom: 1rem;
+        }
+        
+        .section ul, .section ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+        
+        .section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-box {
+            background-color: var(--light-color);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .page-header h2 {
+                font-size: 2rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🌱</div>
+                    <h1>The <span>Forbidden</span> Verdure</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms Of Service</a></li>
+                        <li><a href="cookies.html">Cookies Policy</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h2>Terms of Service</h2>
+            <p>Please read these terms carefully before using our website and services</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="section">
+            <h2>Acceptance of Terms</h2>
+            <p>By accessing and using The Forbidden Verdure website (the "Service"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by these terms, please do not use this Service.</p>
+            
+            <div class="highlight-box">
+                <p><strong>Last Updated:</strong> October 15, 2023</p>
+                <p>These Terms of Service govern your use of our website located at www.forbiddenverdure.com and form a binding contractual agreement between you, the user of the Service, and us, The Forbidden Verdure.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Use of Our Service</h2>
+            <h3>Eligibility</h3>
+            <p>You must be at least 18 years of age to use our Service. By using the Service, you represent and warrant that you are at least 18 years old.</p>
+            
+            <h3>Account Registration</h3>
+            <p>Some features of our Service may require you to register for an account. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete.</p>
+            
+            <h3>User Responsibilities</h3>
+            <p>You are responsible for safeguarding the password that you use to access the Service and for any activities or actions under your password. You agree not to disclose your password to any third party.</p>
+        </section>
+
+        <section class="section">
+            <h2>Intellectual Property Rights</h2>
+            <p>Our Service and its original content, features, and functionality are and will remain the exclusive property of The Forbidden Verdure and its licensors. Our Service is protected by copyright, trademark, and other laws of both the United States and foreign countries.</p>
+            
+            <h3>Content You Provide</h3>
+            <p>By submitting, posting, or displaying content on or through our Service, you grant us a worldwide, non-exclusive, royalty-free license to use, copy, reproduce, process, adapt, modify, publish, transmit, display, and distribute such content in any and all media or distribution methods.</p>
+            
+            <h3>Trademarks</h3>
+            <p>Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of The Forbidden Verdure.</p>
+        </section>
+
+        <section class="section">
+            <h2>User Conduct</h2>
+            <p>As a condition of your use of the Service, you warrant that you will not use the Service for any purpose that is unlawful or prohibited by these Terms. You may not use the Service in any manner that could damage, disable, overburden, or impair the Service or interfere with any other party's use and enjoyment of the Service.</p>
+            
+            <p>You agree not to:</p>
+            <ul>
+                <li>Use the Service for any illegal purpose or in violation of any local, state, national, or international law</li>
+                <li>Harass, abuse, or harm another person</li>
+                <li>Impersonate any person or entity or falsely state or otherwise misrepresent your affiliation with a person or entity</li>
+                <li>Interfere with or disrupt the Service or servers or networks connected to the Service</li>
+                <li>Collect or store personal data about other users without their express permission</li>
+                <li>Transmit any viruses, worms, defects, Trojan horses, or any items of a destructive nature</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Gardening Information Disclaimer</h2>
+            <p>The gardening information, techniques, and advice provided on The Forbidden Verdure website are for informational purposes only. While we strive to provide accurate and up-to-date information, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the information contained on the website.</p>
+            
+            <div class="highlight-box">
+                <p><strong>Important:</strong> Gardening results may vary based on soil conditions, climate, plant varieties, and other factors. The use of bamboo ash or any other gardening amendments should be done at your own risk. We recommend testing any new gardening technique on a small scale before applying it broadly in your garden.</p>
+            </div>
+            
+            <p>In no event will The Forbidden Verdure be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from the use of information provided on this website.</p>
+        </section>
+
+        <section class="section">
+            <h2>Third-Party Links</h2>
+            <p>Our Service may contain links to third-party websites or services that are not owned or controlled by The Forbidden Verdure. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services.</p>
+            
+            <p>You further acknowledge and agree that The Forbidden Verdure shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods, or services available on or through any such websites or services.</p>
+        </section>
+
+        <section class="section">
+            <h2>Termination</h2>
+            <p>We may terminate or suspend your account and bar access to the Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms.</p>
+            
+            <p>If you wish to terminate your account, you may simply discontinue using the Service. All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability.</p>
+        </section>
+
+        <section class="section">
+            <h2>Limitation of Liability</h2>
+            <p>In no event shall The Forbidden Verdure, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:</p>
+            
+            <ol>
+                <li>Your access to or use of or inability to access or use the Service</li>
+                <li>Any conduct or content of any third party on the Service</li>
+                <li>Any content obtained from the Service</li>
+                <li>Unauthorized access, use, or alteration of your transmissions or content</li>
+            </ol>
+            
+            <p>Whether based on warranty, contract, tort (including negligence), or any other legal theory, whether or not we have been informed of the possibility of such damage.</p>
+        </section>
+
+        <section class="section">
+            <h2>Disclaimer</h2>
+            <p>Your use of the Service is at your sole risk. The Service is provided on an "AS IS" and "AS AVAILABLE" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement, or course of performance.</p>
+            
+            <p>The Forbidden Verdure, its subsidiaries, affiliates, and its licensors do not warrant that:</p>
+            <ul>
+                <li>The Service will function uninterrupted, secure, or available at any particular time or location</li>
+                <li>Any errors or defects will be corrected</li>
+                <li>The Service is free of viruses or other harmful components</li>
+                <li>The results of using the Service will meet your requirements</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Governing Law</h2>
+            <p>These Terms shall be governed and construed in accordance with the laws of the State of California, United States, without regard to its conflict of law provisions.</p>
+            
+            <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect.</p>
+        </section>
+
+        <section class="section">
+            <h2>Changes to Terms</h2>
+            <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
+            
+            <p>By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service.</p>
+        </section>
+
+        <section class="section">
+            <h2>Contact Us</h2>
+            <p>If you have any questions about these Terms, please contact us:</p>
+            
+            <ul>
+                <li>By email: legal@forbiddenverdure.com</li>
+                <li>By visiting this page on our website: www.forbiddenverdure.com/contact</li>
+                <li>By mail: 123 Botanical Gardens Lane, Greendale, CA 90210</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p><strong>Address:</strong> 123 Botanical Gardens Lane, Greendale, CA 90210</p>
+                    <p><strong>Phone:</strong> (555) 123-4567</p>
+                    <p><strong>Email:</strong> info@forbiddenverdure.com</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms Of Service</a>
+                    <a href="cookies.html">Cookies Policy</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for seasonal gardening tips and exclusive content about natural gardening amendments.</p>
+                    <a href="#" class="btn">Subscribe Now</a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 The Forbidden Verdure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

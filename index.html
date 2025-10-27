@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Forbidden Verdure - Gardening with Bamboo Ash</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #2d5a27;
+            --secondary-color: #5a7f4c;
+            --accent-color: #8a9a5b;
+            --light-color: #f5f9f3;
+            --dark-color: #1a3316;
+            --text-color: #333;
+            --text-light: #666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="none" width="100" height="100"/><path fill="%232d5a27" opacity="0.05" d="M20,20 L80,20 L80,80 L20,80 Z M30,30 L70,30 L70,70 L30,70 Z"/></svg>');
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(45, 90, 39, 0.7), rgba(90, 127, 76, 0.7)), url('https://images.unsplash.com/photo-1492496913980-501348b61469?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #7a8a4b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .section p {
+            margin-bottom: 1rem;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-img {
+            height: 200px;
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .card:hover .card-img img {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🌱</div>
+                    <h1>The <span>Forbidden</span> Verdure</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us </a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms Of Service</a></li>
+					<li><a href="cookies.html">Cookies Policy</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Unlock the Secret Power of Bamboo Ash</h2>
+            <p>Discover how this ancient gardening amendment can transform your soil, boost plant health, and create a thriving ecosystem in your garden.</p>
+            <a href="#about" class="btn">Explore the Magic</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="section" id="about">
+            <h2>About Bamboo Ash in Gardening</h2>
+            <p>Bamboo ash, the residual product from burning bamboo, has been used for centuries in traditional agricultural practices across Asia. This seemingly simple substance contains a complex mineral profile that can significantly enhance soil quality and plant growth when used correctly.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1693414854278-6b3703411629?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=764" alt="Bamboo forest">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1625179893310-8e419f979608?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" alt="Bamboo ash preparation">
+                </div>
+            </div>
+            
+            <p>Unlike wood ash from common trees, bamboo ash possesses unique properties derived from the rapid growth cycle and distinctive mineral composition of bamboo plants. The high silica content, along with significant amounts of potassium, calcium, and trace minerals, makes bamboo ash a valuable addition to the gardener's toolkit.</p>
+            
+            <h3>The Science Behind Bamboo Ash</h3>
+            <p>Bamboo is a remarkable plant that accumulates minerals from deep within the soil through its extensive root system. When burned, these minerals become concentrated in the ash, creating a potent amendment. The primary components include:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mineral</th>
+                        <th>Percentage</th>
+                        <th>Benefits to Plants</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Potassium (K)</td>
+                        <td>5-10%</td>
+                        <td>Improves flower and fruit production, disease resistance</td>
+                    </tr>
+                    <tr>
+                        <td>Calcium (Ca)</td>
+                        <td>15-30%</td>
+                        <td>Strengthens cell walls, regulates nutrient uptake</td>
+                    </tr>
+                    <tr>
+                        <td>Silica (SiO₂)</td>
+                        <td>50-70%</td>
+                        <td>Enhances plant structure, pest resistance</td>
+                    </tr>
+                    <tr>
+                        <td>Magnesium (Mg)</td>
+                        <td>1-2%</td>
+                        <td>Essential for photosynthesis, chlorophyll production</td>
+                    </tr>
+                    <tr>
+                        <td>Phosphorus (P)</td>
+                        <td>1-2%</td>
+                        <td>Promotes root development, energy transfer</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p>The high silica content is particularly noteworthy, as it forms protective layers on plant surfaces, making them more resistant to fungal diseases and insect pests. This natural defense mechanism reduces the need for chemical interventions in the garden.</p>
+        </section>
+
+        <section class="section" id="benefits">
+            <h2>Benefits of Using Bamboo Ash</h2>
+            <p>Incorporating bamboo ash into your gardening practice offers numerous advantages that extend beyond simple nutrient supplementation. Here are the key benefits:</p>
+            
+            <div class="content-grid">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1470755008296-2939845775eb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=735" alt="Healthy soil with bamboo ash">
+                    </div>
+                    <div class="card-content">
+                        <h3>Soil Amendment</h3>
+                        <p>Bamboo ash raises soil pH, making it less acidic. This is particularly beneficial for gardens with acidic soils, as it creates a more neutral environment where nutrients become more available to plants.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1584638458064-9620938cd14a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=735" alt="Pest-free garden">
+                    </div>
+                    <div class="card-content">
+                        <h3>Pest Deterrent</h3>
+                        <p>The fine, abrasive texture of bamboo ash creates a barrier that deters soft-bodied pests like slugs and snails. When applied around plants, it protects them from these common garden invaders.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1568621036827-7607ad16a38b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=735" alt="Watering plants">
+                    </div>
+                    <div class="card-content">
+                        <h3>Water Retention</h3>
+                        <p>Bamboo ash improves soil structure, enhancing its ability to retain moisture while still providing adequate drainage. This means less frequent watering and more consistent soil moisture for plants.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Additional Advantages</h3>
+            <p>Beyond the primary benefits, bamboo ash offers several secondary advantages that contribute to overall garden health:</p>
+            
+            <ul>
+                <li><strong>Natural Fungicide:</strong> The alkaline nature of bamboo ash creates an environment less conducive to many soil-borne fungal diseases.</li>
+                <li><strong>Trace Minerals:</strong> Provides essential micronutrients that are often lacking in commercial fertilizers.</li>
+                <li><strong>Sustainable Resource:</strong> Utilizes a byproduct that would otherwise be waste, supporting circular gardening practices.</li>
+                <li><strong>Cost-Effective:</strong> An economical alternative to commercial soil amendments when you have access to bamboo.</li>
+                <li><strong>Compost Accelerator:</strong> When added to compost piles, bamboo ash helps balance carbon-nitrogen ratios and speeds up decomposition.</li>
+            </ul>
+        </section>
+
+        <section class="section" id="applications">
+            <h2>Practical Applications</h2>
+            <p>Knowing how to properly apply bamboo ash is crucial for maximizing its benefits while avoiding potential drawbacks. Here are the most effective methods for using bamboo ash in your garden:</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Applying bamboo ash to garden bed">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Compost pile with bamboo ash">
+                </div>
+            </div>
+            
+            <h3>Soil Preparation</h3>
+            <p>Before planting, incorporate bamboo ash into your garden beds at a rate of 5-10 pounds per 100 square feet. Work it thoroughly into the top 6-8 inches of soil. This is particularly effective for vegetable gardens and flower beds where you're growing plants that prefer neutral to slightly alkaline soil conditions.</p>
+            
+            <h3>Compost Enhancement</h3>
+            <p>Add a thin layer of bamboo ash to your compost pile between layers of green and brown materials. The ash helps maintain a balanced pH in the compost and adds valuable minerals. Use approximately one cup of ash for every 20-30 pounds of compost material.</p>
+            
+            <h3>Pest Control Barrier</h3>
+            <p>Create a protective ring of bamboo ash around susceptible plants like hostas, lettuce, and strawberries to deter slugs and snails. Reapply after heavy rains, as water will wash away the protective barrier.</p>
+            
+            <h3>Potting Mix Amendment</h3>
+            <p>For container gardening, mix bamboo ash into your potting soil at a ratio of 1 part ash to 50 parts soil. This provides a slow-release source of potassium and other minerals while improving drainage.</p>
+            
+            <h3>Fruit Tree Care</h3>
+            <p>Apply bamboo ash around the drip line of fruit trees in early spring to boost fruit production and improve disease resistance. Use 1-2 pounds per tree, depending on size, and water it in thoroughly.</p>
+        </section>
+
+        <section class="section" id="gardening">
+            <h2>Gardening Tips with Bamboo Ash</h2>
+            <p>To make the most of bamboo ash in your garden, follow these expert tips and best practices:</p>
+            
+            <h3>When to Apply</h3>
+            <p>The best time to apply bamboo ash is in the fall or early spring. This allows the minerals to integrate into the soil before the main growing season. Avoid applying during periods of active plant growth, as the sudden pH change can stress plants.</p>
+            
+            <h3>Plants That Benefit Most</h3>
+            <p>While many plants appreciate the minerals in bamboo ash, some particularly benefit from its application:</p>
+            
+            <ul>
+                <li><strong>Tomatoes and Peppers:</strong> The potassium supports fruit development and helps prevent blossom end rot.</li>
+                <li><strong>Brassicas (Cabbage, Broccoli, Kale):</strong> These plants thrive in the slightly alkaline conditions created by bamboo ash.</li>
+                <li><strong>Fruit Trees and Berry Bushes:</strong> The mineral boost improves fruit quality and yield.</li>
+                <li><strong>Lawns:</strong> A light dusting can help neutralize acidic soil and promote lush growth.</li>
+            </ul>
+            
+            <h3>Plants to Avoid</h3>
+            <p>Some plants prefer acidic soil conditions and may not respond well to bamboo ash applications:</p>
+            
+            <ul>
+                <li>Blueberries</li>
+                <li>Rhododendrons and Azaleas</li>
+                <li>Camellias</li>
+                <li>Potatoes (can promote scab in alkaline conditions)</li>
+            </ul>
+            
+            <h3>Safety Considerations</h3>
+            <p>While bamboo ash is natural, it's important to handle it properly:</p>
+            
+            <ul>
+                <li>Wear gloves and a dust mask when applying to avoid skin irritation and inhalation.</li>
+                <li>Store in a dry, covered container to prevent it from becoming damp and losing effectiveness.</li>
+                <li>Keep away from children and pets.</li>
+                <li>Never use ash from treated bamboo or bamboo that has been painted or stained.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p><strong>Address:</strong> 123 Botanical Gardens Lane, Greendale, CA 90210</p>
+                    <p><strong>Phone:</strong> (555) 123-4567</p>
+                    <p><strong>Email:</strong> info@forbiddenverdure.com</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#about">About Bamboo Ash</a>
+                    <a href="#benefits">Benefits</a>
+                    <a href="#applications">Applications</a>
+                    <a href="#gardening">Gardening Tips</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for seasonal gardening tips and exclusive content about natural gardening amendments.</p>
+                    <a href="#" class="btn">Subscribe Now</a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 The Forbidden Verdure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
