@@ -1,5 +1,11 @@
-FROM python:3.11-slim
-WORKDIR /app
-COPY . .
-EXPOSE 8000
-CMD ["python", "-m", "http.server", "8000"]
+# Use a lightweight Nginx image
+FROM nginx:alpine
+
+# Copy all website files to Nginx's public directory
+COPY . /usr/share/nginx/html
+
+# Expose port 80 for Koyeb
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
