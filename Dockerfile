@@ -1,15 +1,11 @@
-<<<<<<< HEAD
-(paste above Dockerfile contents) 
-=======
-# Use a lightweight Nginx image
+# Use lightweight NGINX image
 FROM nginx:alpine
 
-# Copy all website files to Nginx's public directory
+# Copy your HTML files into the default nginx web directory
 COPY . /usr/share/nginx/html
 
-# Expose port 80 for Koyeb
+# Expose port 80
 EXPOSE 80
 
-# Start Nginx
+# Start NGINX
 CMD ["nginx", "-g", "daemon off;"]
->>>>>>> 60bdb017508bee789ce1806eed607fa3a16121c3
